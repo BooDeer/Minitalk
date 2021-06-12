@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: b00d33r <b00d33r@student.42.fr>            +#+  +:+       +#+         #
+#    By: hboudhir <hboudhir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/08 02:09:09 by b00d33r           #+#    #+#              #
-#    Updated: 2021/06/08 02:24:19 by b00d33r          ###   ########.fr        #
+#    Updated: 2021/06/12 18:52:56 by hboudhir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,18 @@ SERVER		= server
 
 all: $(CLIENT) $(SERVER)
 
-$(CLIENT): main_client.o minitalk.h
-	@$(CC) main_client.o -o $@ ; echo $@	
+$(CLIENT): client.o utils.o minitalk.h
+	@$(CC) client.o utils.o -o $@
 
-$(SERVER): main_server.o minitalk.o
-	@$(CC) main_server -o $@
+$(SERVER): server.o utils.o minitalk.h
+	@$(CC) server.o utils.o -o $@
 
 %.o: %.c
 	@$(CC) $(FLAGS) $< -c 
+
+clean:
+	@rm -rf *.o
+
+fclean: clean
+	@rm -rf server client
+re: fclean all
