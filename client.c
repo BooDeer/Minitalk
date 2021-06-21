@@ -6,12 +6,11 @@
 /*   By: hboudhir <hboudhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 00:58:10 by b00d33r           #+#    #+#             */
-/*   Updated: 2021/06/12 18:56:47 by hboudhir         ###   ########.fr       */
+/*   Updated: 2021/06/21 12:57:14 by hboudhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
-
 
 void	send_char(char ascii, int power, int pid)
 {
@@ -36,7 +35,7 @@ void	send_char(char ascii, int power, int pid)
 	usleep(100);
 }
 
-int		send_string(int pid, char *str)
+int	send_string(int pid, char *str)
 {
 	int		i;
 
@@ -45,7 +44,8 @@ int		send_string(int pid, char *str)
 		send_char(str[i], 7, pid);
 	return (0);
 }
-int		main(int ac, char **av)
+
+int	main(int ac, char **av)
 {
 	if (ac != 3)
 	{
@@ -53,7 +53,5 @@ int		main(int ac, char **av)
 		return (0);
 	}
 	send_string(ft_atoi(av[1]), av[2]);
-	//while (69)
-	//	pause();
 	return (0);
 }

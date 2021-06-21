@@ -6,7 +6,7 @@
 /*   By: hboudhir <hboudhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 18:03:30 by hboudhir          #+#    #+#             */
-/*   Updated: 2021/06/12 18:49:53 by hboudhir         ###   ########.fr       */
+/*   Updated: 2021/06/21 12:58:52 by hboudhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_putnbr(int n)
 	ft_putchar((n % 10) + '0');
 }
 
-static int		ft_isdigit(int c)
+static int	ft_isdigit(int c)
 {
 	if (c >= 48 && c <= 57)
 		return (1);
@@ -48,7 +48,7 @@ static int		ft_isdigit(int c)
 		return (0);
 }
 
-int		ft_atoi(const char *c)
+int	ft_atoi(const char *c)
 {
 	int		i;
 	int		signe;
@@ -58,7 +58,7 @@ int		ft_atoi(const char *c)
 	signe = 1;
 	res = 0;
 	while (c[i] && (c[i] == '\t' || c[i] == '\n' || c[i] == '\r' || c[i] == '\v'
-				|| c[i] == '\f' || c[i] == ' '))
+			|| c[i] == '\f' || c[i] == ' '))
 		i++;
 	if (c[i] == '-')
 		signe = -1;

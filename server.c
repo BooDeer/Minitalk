@@ -6,17 +6,16 @@
 /*   By: hboudhir <hboudhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 00:58:08 by b00d33r           #+#    #+#             */
-/*   Updated: 2021/06/12 18:55:06 by hboudhir         ###   ########.fr       */
+/*   Updated: 2021/06/21 12:58:14 by hboudhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-
 void	send_char(int signum)
 {
-	static int ascii = 0;
-	static int powah = 0;
+	static int	ascii = 0;
+	static int	powah = 0;
 
 	if (signum == SIGUSR1)
 		ascii += 1 << (7 - powah);
@@ -26,10 +25,10 @@ void	send_char(int signum)
 		ft_putchar(ascii);
 		ascii = 0;
 		powah = 0;
-	}
-		
+	}		
 }
-int		main(int ac, char **av)
+
+int	main(int ac, char **av)
 {
 	if (ac != 1)
 	{
@@ -41,7 +40,6 @@ int		main(int ac, char **av)
 	write(1, "\n", 1);
 	(void)ac;
 	(void)av;
-
 	signal(SIGUSR1, send_char);
 	signal(SIGUSR2, send_char);
 	while (69)
