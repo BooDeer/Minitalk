@@ -6,7 +6,7 @@
 /*   By: hboudhir <hboudhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 00:58:10 by b00d33r           #+#    #+#             */
-/*   Updated: 2021/06/21 12:57:14 by hboudhir         ###   ########.fr       */
+/*   Updated: 2021/06/29 18:00:55 by hboudhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int	main(int ac, char **av)
 		write(1, "Wrong number of arguments!\n", 27);
 		return (0);
 	}
-	send_string(ft_atoi(av[1]), av[2]);
+	if (ft_atoi(av[1]) != -1)
+		send_string(ft_atoi(av[1]), av[2]);
 	return (0);
 }
